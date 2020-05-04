@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-# http://localhost:8000/products
+    # http://localhost:8000/store_info
     path('', views.index, name="index"),
 ]
