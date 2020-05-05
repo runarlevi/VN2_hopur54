@@ -2,9 +2,18 @@
 {% block content %}
     <div class="products">
         <h2>Welcome to the Products app!</h2>
+        <div class="dropdown">
+            <span>Genres</span>
+            <div class="dropdown-content">
+                <p>Action</p>
+                <p>Sports</p>
+            </div>
+        </div>
     </div>
     {% for product in products %}
-        <h4>{{ product.name }}</h4>
-        <p>{{ product.price }}$</p>
+        <div class="product">
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.price }}$</p>
+        </div>
     {% endfor %}
 {% endblock %}
