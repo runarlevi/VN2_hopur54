@@ -10,10 +10,10 @@
             </div>
         </div>
     </div>
-    {% for product in products %}
-        <div class="product">
-            <h4>{{ product.name }}</h4>
-            <p>{{ product.price }}$</p>
-        </div>
-    {% endfor %}
+
+    <div class="product">
+        {% for product in products %}
+            {% include 'products/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
 {% endblock %}
