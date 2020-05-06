@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -20,11 +21,13 @@ def index(request):
     return render(request, 'products/index.html', context)
 
 # /products/{:id}
+@login_required
 def get_product_by_id(request, id):
     return render(request, 'products/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
     })
 
+@login_required
 def create_product(request):
     if request.method == 'POST':
         form = ProductCreateForm(data=request.POST)
@@ -39,11 +42,13 @@ def create_product(request):
         'form': form
     })
 
+@login_required
 def delete_product(request, id):
     product = get_object_or_404(Product, pk=id)
     product.delete()
     return redirect('products-index')
 
+@login_required
 def update_product(request, id):
     instance = get_object_or_404(Product, pk=id)
     if request.method == 'POST':
