@@ -111,3 +111,4 @@ dmypy.json
 .idea/captain_console.iml
 .idea/~$misc.xml
 .idea/
+.venv/
