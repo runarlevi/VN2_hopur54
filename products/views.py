@@ -5,8 +5,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from products.forms.product_form import ProductCreateForm, ProductUpdateForm
 from products.models import Product, ProductImage
 
+from cart.models import ShoppingCart
+from user.models import Profile
 
-# Create your views here.
+
 def index(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
@@ -62,3 +64,16 @@ def update_product(request, id):
         'form': form,
         'id': id,
     })
+
+def add_to_cart(request, id):
+    # ShoppingCart.objects.all().delete()
+    if ShoppingCart.objects.filter(product_id=id).exists():
+        my_shopping_cart = ShoppingCart.objects.get(product_id=id)
+        my_shopping_cart.quantity += 1
+        my_shopping_cart.price += Product.objects.get(id=id).price
+        my_shopping_cart.save(update_fields=['quantity', 'price'])
+    else:
+        price = Product.objects.get(id=id).price
+        to_cart = ShoppingCart(product_id=id, user_id=request.user.id, quantity=1, price=price)
+        to_cart.save()
+    return redirect('product_details', id=id)

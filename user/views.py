@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
+from cart.models import ShoppingCart
 from user.forms.profile_form import ProfileForm
 from user.models import Profile
 
@@ -27,3 +28,7 @@ def profile(request):
     return render(request, 'user/profile.html', {
         'form': ProfileForm(instance=profile)
     })
+
+def shopping_cart(request):
+    context = {'cart': ShoppingCart.objects.all()}
+    return render(request, 'cart/index.html', context)
