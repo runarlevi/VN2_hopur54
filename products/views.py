@@ -66,10 +66,12 @@ def update_product(request, id):
     })
 
 def add_to_cart(request, id):
-    #ShoppingCart.objects.all().delete()
+    # ShoppingCart.objects.all().delete()
     if ShoppingCart.objects.filter(product_id=id).exists():
-        ShoppingCart.objects.get(product_id=id).quantity += 1
-        ShoppingCart.objects.get(product_id=id).price += Product.objects.get(id=id).price
+        my_shopping_cart = ShoppingCart.objects.get(product_id=id)
+        my_shopping_cart.quantity += 1
+        my_shopping_cart.price += Product.objects.get(id=id).price
+        my_shopping_cart.save(update_fields=['quantity', 'price'])
     else:
         price = Product.objects.get(id=id).price
         to_cart = ShoppingCart(product_id=id, user_id=request.user.id, quantity=1, price=price)
