@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+
+    <div class="products-navbar">
+            <ul class="nav_links">
+                <div class="consoles">
+                    <li><a href="#">Consoles</a></li>
+                </div>
+                <div class="consoles">
+                    <li><a href="#">Games</a></li>
+                </div>
+                <div class="consoles">
+                    <li><a href="#">Accessories</a></li>
+                </div>
+            </ul>
+    </div>
+
     <div class="products">
-        <h2>Welcome to the Products app!</h2>
         <div class="dropdown">
             <span>Genres</span>
             <div class="dropdown-content">
@@ -13,9 +27,7 @@
 
     <div class="input-group">
         <input type="search" class="form-control" id="search-box" placeholder="Enter your search here..">
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn btn-default">Search</button>
-        </div>
+        <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
 
     <div class="products">
