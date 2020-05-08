@@ -29,7 +29,7 @@
             </ul>
 
             {% if user.is_authenticated %}
-                <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
+                <picture src="{{ user.profile.profile_image }}" alt="" class="profile-image" style='max-height:50px>
             {% endif %}
 
             <form class="navbar-form navbar-right" role="search">
