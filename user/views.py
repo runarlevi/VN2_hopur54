@@ -28,7 +28,3 @@ def profile(request):
     return render(request, 'user/profile.html', {
         'form': ProfileForm(instance=profile)
     })
-
-def shopping_cart(request, id):
-    context = {'cart': ShoppingCart.objects.filter(user_id=id)}
-    return render(request, 'cart/index.html', context)

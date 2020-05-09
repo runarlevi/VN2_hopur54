@@ -31,6 +31,8 @@
             {% if user.is_authenticated %}
                 <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
             {% endif %}
+        
+            <li><a href="{% url 'shopping-cart-index' user.id %}">Shopping cart</a></li>
 
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">

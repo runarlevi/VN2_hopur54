@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # http://localhost:8000/home
-    path('', views.index, name="shopping-cart-index"),
+    path('<int:id>', views.index, name="shopping-cart-index"),
+    path('checkout', views.checkout, name="checkout")
 ]
