@@ -112,3 +112,5 @@ dmypy.json
 .idea/~$misc.xml
 .idea/
 .venv/
+
+captain_console/__pycache__/
