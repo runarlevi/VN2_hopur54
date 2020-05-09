@@ -29,6 +29,6 @@ def profile(request):
         'form': ProfileForm(instance=profile)
     })
 
-def shopping_cart(request):
-    context = {'cart': ShoppingCart.objects.all()}
+def shopping_cart(request, id):
+    context = {'cart': ShoppingCart.objects.filter(user_id=id)}
     return render(request, 'cart/index.html', context)
