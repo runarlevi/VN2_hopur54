@@ -4,6 +4,76 @@
     text-align: center;
 }
 
+header {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+nav {
+    float: right;
+    vertical-align: middle;
+}
+
+.navtag ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navtag li {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 8px;
+
+    position: relative;
+}
+
+.navtag a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navtag a:hover {
+    color: #000;
+}
+
+.navtag a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+    position: absolute; /* hmmm */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: all ease-in-out 250ms;
+}
+
+.navtag a:hover::before {
+    transform: scale(1, 1);
+}
+
+
+
+
+
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -35,8 +105,8 @@
 }
 
 .profile-image {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     margin: 0;
 }
 

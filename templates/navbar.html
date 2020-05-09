@@ -1,19 +1,11 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'home-index' %}">Captain Console</a>
-        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+<header>
+    <div class="navbar">
+        <a href="{% url 'home-index' %}" class="logo">Captain Console</a>
+
+        <nav class="navtag">
+
+            <ul>
                 <li><a href="{% url 'products-index' %}">Products</a></li>
                 <li><a href="{% url 'store-info-index' %}">Store Info</a></li>
                 <li><a href="{% url 'account-index' %}">Account</a></li>
@@ -21,25 +13,14 @@
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
+                    <li><a href="{% url 'shopping-cart-index' user.id %}">Shopping cart</a></li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'register' %}">Register</a></li>
                 {% endif %}
-
             </ul>
 
-            {% if user.is_authenticated %}
-                <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
-            {% endif %}
-        
-            <li><a href="{% url 'shopping-cart-index' user.id %}">Shopping cart</a></li>
-
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+        </nav>
+    </div>
+</header>
