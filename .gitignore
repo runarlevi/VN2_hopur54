@@ -123,10 +123,3 @@ dmypy.json
 */__pycache__/
 .idea/misc.xml
 .idea/captain_console.iml
-.idea/captain_console.iml
-.idea/dataSources.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/sqldialects.xml
-home/views.py
-templates/home/index.html
