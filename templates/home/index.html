@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Coming soon!</h2>
-         <div class="products">
-            {% for product in Products %}
-                    {% include '../products/single_product.html' with product=product %}
-            {% endfor %}
-         </div>
+    <div class="products">
+        {% for product in upcoming %}
+            {% include 'products/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
 {% endblock %}
