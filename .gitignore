@@ -112,6 +112,12 @@ dmypy.json
 .idea/
 .venv/
 
-.venv/*
+*.log
 
-.cpython-37.pyc/
+*.pyc
+
+*/*/*/__pycache__/
+
+*/*/__pycache__/
+
+*/__pycache__/
