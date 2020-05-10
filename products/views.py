@@ -23,7 +23,7 @@ def index(request):
     return render(request, 'products/index.html', context)
 
 # /products/{:id}
-@login_required
+#@login_required
 def get_product_by_id(request, id):
     return render(request, 'products/product_details.html', {
         'product': get_object_or_404(Product, pk=id)

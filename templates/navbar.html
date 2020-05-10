@@ -8,7 +8,6 @@
             <ul>
                 <li><a href="{% url 'products-index' %}">Products</a></li>
                 <li><a href="{% url 'store-info-index' %}">Store Info</a></li>
-                <li><a href="{% url 'account-index' %}">Account</a></li>
 
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>

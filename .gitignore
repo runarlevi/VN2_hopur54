@@ -111,3 +111,7 @@ dmypy.json
 .idea/~$misc.xml
 .idea/
 .venv/
+
+.venv/*
+
+.cpython-37.pyc/

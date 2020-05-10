@@ -7,19 +7,19 @@ $(document).ready(function() {
            type: 'GET',
            success: function (resp) {
                var newHtml = resp.data.map(d => {
-                   return `<div class="well product">
+                   return `<div class="product">
                                 <a href="/products/${d.id}">
-                                    <img src="${d.firstImage}" class="product-img" alt="">
+                                    <img class="product-img" src="${d.firstImage}">
                                     <h4>${d.name}</h4>
-                                    <p>${d.description}</p>
+                                    <h4>${d.price}$</h4>
                                 </a>
                             </div>`
                });
-               $('.product').html(newHtml.join(''));
+               $('.products').html(newHtml.join(''));
                $('#search-box').val('');
            },
            error: function (xhr, status, error) {
-                console.error(error)
+                console.error(error);
            }
        });
     });
