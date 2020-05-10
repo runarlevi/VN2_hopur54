@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def index(request):
-    return render(request, 'home/index.html')
+from products.models import Product
 
-@login_required
-def get_product_by_id(request, id):
-    return render(request, 'products/product_details.html', {
-        'product': get_object_or_404(Product, pk=id)
-    })
+
+def index(request):
+    # Þarf að hafa database-inn og Product modelið eins svo 'Released = False' virki.
+    my_context = {
+        'upcoming': Product.objects.all(),
+    }
+    return render(request, 'home/index.html', my_context)
