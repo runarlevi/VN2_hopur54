@@ -6,7 +6,6 @@ from products.models import Product
 
 
 def index(request):
-    # Þarf að hafa database-inn og Product modelið eins svo 'Released = False' virki.
     my_context = {
         'upcoming': Product.objects.filter(released=False),
     }

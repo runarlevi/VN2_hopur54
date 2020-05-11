@@ -3,7 +3,12 @@
     <h1>Coming soon!</h1>
         <div class="products">
             {% for product in upcoming %}
-                {% include 'products/single_product.html' with product=product %}
+                    <div class="product">
+                        <a href="/products/{{ product.id }}">
+                            <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
+                            <h4>{{ product.name }}</h4>
+                        </a>
+                    </div>
             {% endfor %}
         </div>
 {% endblock %}
