@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 
 from cart.forms.checkout_form import CheckoutForms
 from cart.models import ShoppingCart
+from user.models import Profile
 
 
 def index(request, id):
-    context = {'cart': ShoppingCart.objects.filter(user_id=id)}
+    user_id = Profile.objects.get(user_id=request.user.id).id
+    context = {'cart': ShoppingCart.objects.filter(user_id=user_id)}
     return render(request, 'cart/index.html', context)
 
 
