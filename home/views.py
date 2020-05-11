@@ -8,6 +8,6 @@ from products.models import Product
 def index(request):
     # Þarf að hafa database-inn og Product modelið eins svo 'Released = False' virki.
     my_context = {
-        'upcoming': Product.objects.all(),
+        'upcoming': Product.objects.filter(released=False),
     }
     return render(request, 'home/index.html', my_context)
