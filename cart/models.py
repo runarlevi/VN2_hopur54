@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.deconstruct import deconstructible
 
 from products.models import Product
 from user.models import Profile
@@ -8,6 +7,7 @@ class ShoppingCart(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.DecimalField(max_digits=5, decimal_places=0)
+    price = models.FloatField()
 
     def __str__(self):
         return str(self.product_id)

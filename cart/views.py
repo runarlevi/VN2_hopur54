@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 
 from cart.forms.checkout_form import CheckoutForms
-from cart.models import ShoppingCart, CheckoutForm
+from cart.models import ShoppingCart
 
 
 def index(request, id):
-    context = {'cart': ShoppingCart.objects.all()}
+    context = {'cart': ShoppingCart.objects.filter(user_id=id)}
     return render(request, 'cart/index.html', context)
 
 
