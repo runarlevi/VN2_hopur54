@@ -10,7 +10,8 @@ class Product(models.Model):
     description = models.CharField(max_length=999, blank=True)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     price = models.FloatField()
-    on_sale = models.BooleanField()
+    released = models.BooleanField()
+    stock = models.IntegerField()
     def __str__(self):
         return self.name
 
