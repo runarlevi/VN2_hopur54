@@ -8,22 +8,42 @@ header {
     font-family: 'Montserrat', sans-serif;
     padding: 0 10px;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
 }
 
 header::after {
     content: '';
     display: table;
     clear: both;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
 }
 
 .logo {
     float: left;
     width: 48px;
+    position: fixed;
 }
 
 nav {
-    float: right;
-    vertical-align: middle;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
 }
 
 .navtag ul {
@@ -214,3 +234,12 @@ nav {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+body {
+    padding-top: 70px;
+}
+
+.fixed-top {
+    z-index: -1;
+}
+
