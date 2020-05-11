@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('profile_image', models.CharField(max_length=9999)),
                 ('favorite_product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='products.Product')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+               #('email', models.EmailField()),
             ],
         ),
     ]
