@@ -18,7 +18,7 @@
     </table>
 
     <div class="checkout">
-        <button><a href="{% url 'checkout' %}" class="block btn btn-primary">Continue to checkout</a></button>
+        <button><a href="{% url 'checkout' user.id %}" class="block btn btn-primary">Continue to checkout</a></button>
     </div>
 
 {% endblock %}

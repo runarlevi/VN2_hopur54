@@ -10,8 +10,11 @@ def index(request, id):
     context = {'cart': ShoppingCart.objects.filter(user_id=user_id)}
     return render(request, 'cart/index.html', context)
 
+def checkout(request, id):
+    return render(request, 'cart/checkout.html')
 
-def checkout(request):
+
+def do_checkout(request):
     if request.method == 'POST':
         form = CheckoutForms(request.POST)
         if form.is_valid():
