@@ -18,8 +18,7 @@ header::after {
 
 .logo {
     float: left;
-    padding: 10px 0;
-    text-decoration: none;
+    width: 48px;
 }
 
 nav {

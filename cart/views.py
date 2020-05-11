@@ -18,5 +18,6 @@ def checkout(request):
     else:
         form = CheckoutForms()
     return render(request, 'cart/checkout.html', {
-        'form': form
+        'form': form,
+        'cart': ShoppingCart.objects.all(),
     })
