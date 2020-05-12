@@ -1,33 +1,14 @@
-INSERT INTO products_productcategory (name) VALUES('Chocolate');
-INSERT INTO products_productcategory (name) VALUES('Gummy');
-INSERT INTO products_productcategory (name) VALUES('Sour');
-INSERT INTO products_productcategory (name) VALUES('Toffee');
+INSERT INTO products_productcategory (name) VALUES('Consoles');
+INSERT INTO products_productcategory (name) VALUES('Games');
+INSERT INTO products_productcategory (name) VALUES('Accessories');
 
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('KitKat', 'First launched in the UK in 1935 it has become an iconic snack bar ever since. Just unwrap the bar, break off one of the fingers and savour the deliciously smooth milk chocolate.', 4.99, false, 1);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Hershey’s Cookies n Chocolate', 'Delicous Hershey’s Milk Chocolate with crunchy little cookie pieces', 1.99, true, 1);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Ferrero Rocher', 'At the centre lies a perfectly roasted hazelnut, surrounded by a luscious, smooth filling and a delicate crisp wafer, all enveloped in creamy milk chocolate and finely chopped hazelnuts.', 2.49, false, 1);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Happy Cola', 'From America''s #1-selling Gummi Bear, try delicious Happy Cola! These two-toned gummies come in a fun bottle shape and have a delcious cola taste.', 2.99, true, 2);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Goldbears', 'HARIBO Goldbears have been the gummi candy gold standard worldwide for over 90 years. Each bag contains five fruity flavors- Lemon, Orange, Pineapple, Raspberry, and Strawberry.', 1.59, false, 2);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Fizzy Cola', 'Sour taste combines with a refreshing cola flavor in these delightful little gummies! HARIBO FIZZY COLA takes your favorite cola gummies and adds a tangy sour coating for maximum taste!', 3.49, false, 3);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Skittles', 'A variety of bite-sized chewy candies with a colorful candy shell, fans have been enjoying Skittles® candies for decades. Taste The Rainbow®.', 2.55, false, 3);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Starburst', 'Starburst candies are packed with a variety of great tasting fruit flavors and a deliciously chewy texture, to be enjoyed anytime and anywhere.', 0.99, true, 4);
-INSERT INTO products_product (name, description, price, on_sale, category_id) VALUES('Tic Tac', 'Tic Tac is a brand of small, hard mints. Refreshment to be shared!', 0.49, false, 4);
+INSERT INTO products_product (name, description, price, released, stock, category_id) VALUES('PS4: Call of Duty: Black Ops III', 'Call of Duty: Black Ops III takes place in 2065, 40 years after the events of Black Ops II, in a world facing upheaval from conflicts, climate change and new technologies. A Third Cold War is ongoing between two global alliances, known as Winslow Accord and Common Defense Pact.', 39.99, true, 20, 2);
+INSERT INTO products_product (name, description, price, released, stock, category_id) VALUES('PS4: Call of Duty: Modern Warfare', 'Call of Duty: Modern Warfare is a 2019 first-person shooter video game developed by Infinity Ward and published by Activision. ... They introduced an entirely new engine for the game, which allows for new performance enhancements such as more detailed environments and ray-tracing capabilities.', 39.99, true, 20, 2);
+INSERT INTO products_product (name, description, price, released, stock, category_id) VALUES('PS4: Red Dead Redemption 2', 'Red Dead Redemption 2 is a 2018 action-adventure game developed and published by Rockstar Games. The game is the third entry in the Red Dead series and is a prequel to the 2010 game Red Dead Redemption.', 39.99, true, 20, 2);
+INSERT INTO products_product (name, description, price, released, stock, category_id) VALUES('PS4: Marvels Spider-Man', 'Marvels Spider-Man is a 2018 action-adventure game developed by Insomniac Games and published by Sony Interactive Entertainment. Based on the Marvel Comics superhero Spider-Man, it is inspired by the long-running comic book mythology and adaptations in other media.', 39.99, true, 20, 2);
 
-INSERT INTO products_productimage (image, product_id) VALUES('http://www.nestle-family.com/uploads/product/615f12a8d73e42f395addd1e68af9bdc.png', 1);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.kitkat.com/images/kitkat-snap.png', 1);
-INSERT INTO products_productimage (image, product_id) VALUES('https://theamericancandystore.co.uk/643-thickbox_default/hersheys-cookies-n-chocolate.jpg', 2);
-INSERT INTO products_productimage (image, product_id) VALUES('https://9044c4.medialib.edu.glogster.com/5gv8bPybSZp90oKKp5Y0/media/0f/0f96edc829ff81139d0ff34cead1d558f84ecccb/himom.png', 2);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.jeancoutu.com/catalog-images/888729/viewer/0/ferrero-canada-limited-ferrero-rocher-200-g.png', 3);
-INSERT INTO products_productimage (image, product_id) VALUES('https://talenthouse-res.cloudinary.com/image/upload/c_limit,h_1280,q_90,w_480/v1/invites/kv4pahmpydnmidlzroaj.png', 3);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.haribo.com/fileadmin/upload/USA/Startpage/products/cola_pack.png', 4);
-INSERT INTO products_productimage (image, product_id) VALUES('https://cdn.shopify.com/s/files/1/0972/7116/products/haribo-happy-cola-bulk.png?v=1459346724', 4);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.haribo.com/fileadmin/upload/USA/Startpage/products/gb_pack.png', 5);
-INSERT INTO products_productimage (image, product_id) VALUES('https://cdn.shopify.com/s/files/1/0972/7116/products/haribo-original-gold-bear-gummies.png?v=1482867150', 5);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.haribo.com/enUS/world/fileadmin/_processed_/4/6/csm_fizzcola-h_8c4e625740.png', 6);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.haribo.com/enUS/world/fileadmin/user_upload/USA/top_products/fizzy_Cola/fizzycola-pieces.jpg', 6);
-INSERT INTO products_productimage (image, product_id) VALUES('http://paradisealacarte.com/wp-content/uploads/2016/10/0030.png', 7);
-INSERT INTO products_productimage (image, product_id) VALUES('https://cdn.shopify.com/s/files/1/0743/2055/products/Skittles_medium.png?v=1461295432', 7);
-INSERT INTO products_productimage (image, product_id) VALUES('https://cdn.shopify.com/s/files/1/0972/7116/products/starburst-original-bar.png?v=1498406174', 8);
-INSERT INTO products_productimage (image, product_id) VALUES('https://cdn.shopify.com/s/files/1/0972/7116/products/starburst-theater-box.png?v=1459345159', 8);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.tictacuk.com/image/journal/article?img_id=22210258&t=1547468914662', 9);
-INSERT INTO products_productimage (image, product_id) VALUES('https://www.tictacuk.com/image/journal/article?img_id=18506308&t=1536579236701', 9);
+
+INSERT INTO products_productimage (image, product_id) VALUES('https://upload.wikimedia.org/wikipedia/en/b/b1/Black_Ops_3.jpg', 1);
+INSERT INTO products_productimage (image, product_id) VALUES('https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/CallofDutyModernWarfare%282019%29.jpg/220px-CallofDutyModernWarfare%282019%29.jpg', 2);
+INSERT INTO products_productimage (image, product_id) VALUES('https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg', 3);
+INSERT INTO products_productimage (image, product_id) VALUES('https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/Spider-Man_PS4_cover.jpg/220px-Spider-Man_PS4_cover.jpg', 4);

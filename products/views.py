@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -67,14 +68,13 @@ def update_product(request, id):
 
 def add_to_cart(request, id):
     # ShoppingCart.objects.all().delete()
-    if ShoppingCart.objects.filter(product_id=id).exists():
-        my_shopping_cart = ShoppingCart.objects.get(product_id=id)
+    if ShoppingCart.objects.filter(product_id=id, user_id=request.user.id).exists():
+        print('in if')
+        my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
         my_shopping_cart.quantity += 1
-        my_shopping_cart.price += Product.objects.get(id=id).price
-        my_shopping_cart.save(update_fields=['quantity', 'price'])
+        my_shopping_cart.save(update_fields=['quantity'])
     else:
-        user_id = Profile.objects.get(user_id=request.user.id).id
-        price = Product.objects.get(id=id).price
-        to_cart = ShoppingCart(product_id=id, user_id=user_id, price=price, quantity=1)
+        to_cart = ShoppingCart(product_id=id, user_id=request.user.id, quantity=1)
         to_cart.save()
+
     return redirect('product_details', id=id)
