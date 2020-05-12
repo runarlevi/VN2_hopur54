@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from django.shortcuts import render, redirect
 
 #from cart.forms.checkout_form import CheckoutForms
@@ -10,7 +11,11 @@ from user.models import Profile
 
 def index(request, id):
     user_id = Profile.objects.get(user_id=request.user.id).id
-    context = {'cart': ShoppingCart.objects.filter(user_id=user_id)}
+    shopping_cart = ShoppingCart.objects
+    context = {
+        'cart': shopping_cart.filter(user_id=user_id),
+        'total': shopping_cart.filter(user_id=user_id).aggregate(Sum('price'))['price__sum'],
+    }
     return render(request, 'cart/index.html', context)
 
 class CheckoutView(View):
