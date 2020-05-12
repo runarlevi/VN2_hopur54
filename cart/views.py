@@ -12,16 +12,12 @@ from user.models import Profile
 def index(request):
     print(request.user.id)
     #user_id = Profile.objects.get(user_id=request.user.id).id
-    '''
     shopping_cart = ShoppingCart.objects
     context = {
-        'cart': shopping_cart.filter(user_id=user_id),
-        'total': shopping_cart.filter(user_id=user_id).aggregate(Sum('price'))['price__sum'],
+        'cart': shopping_cart.filter(user_id=request.user.id),
+        #'total': shopping_cart.filter(user_id=request.user.id).aggregate(Sum('price'))['price__sum'],
     }
     return render(request, 'cart/index.html', context)
-    '''
-    return render(request, 'cart/index.html')
-
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):

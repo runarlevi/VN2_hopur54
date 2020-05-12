@@ -13,12 +13,14 @@
             <tr>
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.product.name }}</td>
-                <td>{{ item.price }}</td>
+                <td>
+                    ${{ item.get_total_item_price }}
+                </td>
             </tr>
         {% endfor %}
     </table>
 
-    <h5>Cart total: {{ total }}</h5>
+    <!-- <h5>Cart total: {{ total }}</h5> -->
     <button class="detail-btn"><a href="{% url 'checkout' %}">Continue to checkout</a></button>
     </div>
 
