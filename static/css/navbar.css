@@ -24,12 +24,6 @@ header::after {
     background: hotpink;
 }
 
-.logo {
-    float: left;
-    width: 48px;
-    position: fixed;
-}
-
 nav {
     position: fixed;
     width: 100%;
@@ -61,6 +55,10 @@ nav {
     color: #444;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+.navtag a img{
+    width: 52px;
 }
 
 .navtag a:hover {
