@@ -13,6 +13,7 @@
 
 .product {
     align-self: stretch;
+    text-align: center;
     width: 330px;
     margin-top: 10px;
     margin-bottom: 10px;
