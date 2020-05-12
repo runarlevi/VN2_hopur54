@@ -1,0 +1,98 @@
+header {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 10px;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
+}
+
+.logo {
+    float: left;
+    width: 48px;
+    position: fixed;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+    background: hotpink;
+}
+
+.navtag ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navtag li {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 8px;
+
+    position: relative;
+}
+
+.navtag a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navtag a:hover {
+    color: #000;
+}
+
+.navtag a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+    position: absolute; /* hmmm */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: all ease-in-out 250ms;
+}
+
+.navtag a:hover::before {
+    transform: scale(1, 1);
+}
+
+.profile-image {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+}
+
+.nav_links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
