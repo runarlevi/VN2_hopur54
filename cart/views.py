@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.db.models import Sum
 from django.shortcuts import render, redirect
 
@@ -23,8 +24,23 @@ def index(request):
     return render(request, 'cart/index.html', context)
 
 
-def remove_from_cart(request):
-    pass
+def decrease_quantity(request, id):
+    my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
+    if my_shopping_cart.quantity == 1:
+        pass
+    my_shopping_cart.quantity -= 1
+    my_shopping_cart.save(update_fields=['quantity'])
+    messages.info(request, 'Item was decreased.')
+
+    return redirect('shopping-cart-index')
+
+def increase_quantity(request, id):
+    my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
+    my_shopping_cart.quantity += 1
+    my_shopping_cart.save(update_fields=['quantity'])
+    messages.info(request, 'Item was increased.')
+
+    return redirect('shopping-cart-index')
 
 
 class CheckoutView(View):
