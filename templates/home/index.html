@@ -1,16 +1,90 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Coming soon!</h1>
-        <div class="products">
+
+    <!--auto compiled css & Js-->
+    <script type="text/javascript"
+            src="//code.jquery.com/jquery-1.9.1.js">
+  </script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="/css/result-light.css">
+
+    <script type="text/javascript"
+            src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+  </script>
+    <link rel="stylesheet"
+          type="text/css"
+          href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- JavaScript for adding
+     slider for multiple images
+     shown at once-->
+    <script type="text/javascript">
+        $(window).load(function() {
+            $(".carousel .item").each(function() {
+                var i = $(this).next();
+                i.length || (i = $(this).siblings(":first")),
+                  i.children(":first-child").clone().appendTo($(this));
+
+                for (var n = 0; n < 4; n++)(i = i.next()).length ||
+                  (i = $(this).siblings(":first")),
+                  i.children(":first-child").clone().appendTo($(this))
+            })
+        });
+    </script>
+
+    <!-- container class for bootstrap card-->
+    <div class="container">
+        <!-- bootstrap card with row name myCarousel as row 1-->
+        <div class="carousel slide" id="myCarousel">
+
+
             {% for product in upcoming %}
-                    <div class="product">
-                        <a href="/products/{{ product.id }}">
-                            <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
-                            <h4>{{ product.name }}</h4>
-                        </a>
-                    </div>
+            <div class="carousel-inner">
+                    {% if forloop.first %}
+                        <div class="active item">
+                        </div>
+                    {% else %}
+                        <div class="item">
+                        </div>
+                    {% endif %}
+                        <div class="product">
+                            <a href="/products/{{ product.id }}">
+                                <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
+                                <h4>{{ product.name }}</h4>
+                            </a>
+                        </div>
             {% endfor %}
+            </div>
+            <a class="left carousel-control"
+                      href="#myCarousel"
+                      data-slide="prev">
+                <i class="glyphicon glyphicon-chevron-left">
+                </i>
+            </a>
+            <a class="right carousel-control"
+                href="#myCarousel"
+                data-slide="next">
+                <i class="glyphicon glyphicon-chevron-right">
+                </i>
+            </a>
+
         </div>
+    </div>
+
+
+
+
+
+
+
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -37,4 +111,5 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+
 {% endblock %}
