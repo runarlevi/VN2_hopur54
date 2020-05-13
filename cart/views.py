@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.db.models import Sum
 from django.shortcuts import render, redirect
 
@@ -6,17 +7,41 @@ from django.views import View
 
 from cart.forms.checkout_form import myCheckoutForm
 from cart.models import ShoppingCart
+from products.models import Product
 from user.models import Profile
 
 
-def index(request, id):
-    user_id = Profile.objects.get(user_id=request.user.id).id
-    shopping_cart = ShoppingCart.objects
+def index(request):
+    total = 0
+    my_products = Product.objects
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
+    for item in my_shopping_cart:
+        total += item.quantity * my_products.filter(id=item.product_id)[0].price # Þarf kannski að nota primary key?
     context = {
-        'cart': shopping_cart.filter(user_id=user_id),
-        'total': shopping_cart.filter(user_id=user_id).aggregate(Sum('price'))['price__sum'],
+        'cart': my_shopping_cart,
+        'total': "{:.2f}".format(total),
     }
     return render(request, 'cart/index.html', context)
+
+
+def decrease_quantity(request, id):
+    my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
+    if my_shopping_cart.quantity == 1:
+        pass
+    my_shopping_cart.quantity -= 1
+    my_shopping_cart.save(update_fields=['quantity'])
+    messages.info(request, 'Item was decreased.')
+
+    return redirect('shopping-cart-index')
+
+def increase_quantity(request, id):
+    my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
+    my_shopping_cart.quantity += 1
+    my_shopping_cart.save(update_fields=['quantity'])
+    messages.info(request, 'Item was increased.')
+
+    return redirect('shopping-cart-index')
+
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):

@@ -24,3 +24,9 @@ $(document).ready(function() {
        });
     });
 });
+
+$(function(){
+  $(".close").click(function(){
+     $("#myAlert").alert('close');
+  });
+});
