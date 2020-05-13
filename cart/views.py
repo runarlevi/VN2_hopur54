@@ -6,18 +6,26 @@ from django.views import View
 
 from cart.forms.checkout_form import myCheckoutForm
 from cart.models import ShoppingCart
+from products.models import Product
 from user.models import Profile
 
 
 def index(request):
-    print(request.user.id)
-    #user_id = Profile.objects.get(user_id=request.user.id).id
-    shopping_cart = ShoppingCart.objects
+    total = 0
+    my_products = Product.objects
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
+    for item in my_shopping_cart:
+        total += item.quantity * my_products.filter(id=item.product_id)[0].price # Þarf kannski að nota primary key?
     context = {
-        'cart': shopping_cart.filter(user_id=request.user.id),
-        #'total': shopping_cart.filter(user_id=request.user.id).aggregate(Sum('price'))['price__sum'],
+        'cart': my_shopping_cart,
+        'total': "{:.2f}".format(total),
     }
     return render(request, 'cart/index.html', context)
+
+
+def remove_from_cart(request):
+    pass
+
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):

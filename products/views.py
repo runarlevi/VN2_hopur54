@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-
+from django.contrib import messages
 from products.forms.product_form import ProductCreateForm, ProductUpdateForm
 from products.models import Product, ProductImage
 
@@ -73,8 +73,10 @@ def add_to_cart(request, id):
         my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
         my_shopping_cart.quantity += 1
         my_shopping_cart.save(update_fields=['quantity'])
+        messages.info(request, 'This item was added to your cart.')
     else:
         to_cart = ShoppingCart(product_id=id, user_id=request.user.id, quantity=1)
         to_cart.save()
+        messages.info(request, 'This item was added to your cart.')
 
     return redirect('product_details', id=id)
