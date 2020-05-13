@@ -8,31 +8,45 @@
             <tr>
                 <th>#</th>
                 <th>Item title</th>
-                <th>Price</th>
                 <th>Quantity</th>
+                <th>Price</th>
             </tr>
 
             {% for item in cart %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ item.product.name }}</td>
-                    <td>${{ item.get_total_item_price }}</td>
                     <td>
                         <a href="{% url 'decrease_quantity' item.product_id %}"><i class="fas fa-minus mr-2"></i></a>
                         {{ item.quantity }}
                         <a href="{% url 'increase_quantity' item.product_id %}"><i class="fas fa-plus ml-2"></i></a>
                     </td>
+                    <td>
+                        ${{ item.get_total_item_price }}
+                        <a href="{% url 'delete_row' item.product_id %}"><i class="fas fa-trash float-right"></i></a>
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td>Your cart is empty</td>
+                    <td colspan="5">Your cart is empty</td>
+                </tr>
+                <tr>
+                <td colspan="5">
+                    <a href="{% url 'products-index' %}" class="btn btn-primary float-right">Continue shopping</a>
+                </td>
                 </tr>
             {% endfor %}
+            {% if cart %}
+                <tr>
+                    <td colspan="3"><b>Order Total</b></td>
+                    <td><b>${{ total }}</b></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <a href="{% url 'checkout' %}" class="btn btn-warning float-right ml-2">Proceed to checkout</a>
+                        <a href="{% url 'products-index' %}" class="btn btn-primary float-right ml-2">Continue shopping</a>
+                    </td>
+                </tr>
+            {% endif %}
         </table>
-    </div>
-
-    <h5>Cart total: {{ total }}$</h5>
-    <button class="detail-btn"><a href="{% url 'checkout' %}">Proceed to checkout</a></button>
-    </div>
-
 {% endblock %}

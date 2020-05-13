@@ -14,7 +14,7 @@ from user.models import Profile
 def index(request):
     total = 0
     my_products = Product.objects
-    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id).order_by('product__name')
     for item in my_shopping_cart:
         total += item.quantity * my_products.filter(id=item.product_id)[0].price # Þarf kannski að nota primary key?
     context = {
@@ -27,11 +27,12 @@ def index(request):
 def decrease_quantity(request, id):
     my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
     if my_shopping_cart.quantity == 1:
-        pass
+        my_shopping_cart.delete()
+        messages.info(request, 'Item quantity was decreased.')
+        return redirect('shopping-cart-index')
     my_shopping_cart.quantity -= 1
     my_shopping_cart.save(update_fields=['quantity'])
-    messages.info(request, 'Item was decreased.')
-
+    messages.info(request, 'Item quantity was decreased.')
     return redirect('shopping-cart-index')
 
 def increase_quantity(request, id):
@@ -40,6 +41,12 @@ def increase_quantity(request, id):
     my_shopping_cart.save(update_fields=['quantity'])
     messages.info(request, 'Item was increased.')
 
+    return redirect('shopping-cart-index')
+
+def delete_row(request, id):
+    my_shopping_cart = ShoppingCart.objects.get(product_id=id, user_id=request.user.id)
+    my_shopping_cart.delete()
+    messages.info(request, 'Item was deleted from your cart.')
     return redirect('shopping-cart-index')
 
 
