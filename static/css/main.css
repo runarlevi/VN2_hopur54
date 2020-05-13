@@ -131,3 +131,6 @@ footer {
     width: 100%;
 }
 
+.carousel {
+display: flex;
+}
