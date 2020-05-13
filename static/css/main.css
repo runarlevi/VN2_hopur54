@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 .container {
+}
+
+#page_content.container {
+    min-height: 500px;
 }
 
 .search-product {

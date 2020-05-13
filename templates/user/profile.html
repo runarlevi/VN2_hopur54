@@ -5,9 +5,11 @@
 
     <div class="wrapper">
         <div class="left">
-            <img src="{{ user.profile.profile_image }}" alt="user" class="profile-image">
-            <h4>{{ user.profile.user }}</h4>
-             <p>UI Developer</p>
+            <div class="name_image">
+                <img src="{{ user.profile.profile_image }}" alt="user" class="profile-image">
+                <h2>{{ user.profile.user }}</h2>
+            </div>
+            <a href="{% url 'edit_profile' %}"><i class="fas fa-pen-square"></i></a>
         </div>
         <div class="right">
             <div class="info">
@@ -15,7 +17,7 @@
                 <div class="info_data">
                      <div class="data">
                         <h4>Email</h4>
-                        <p>alex@gmail.com</p>
+                        <p>{{ user.profile.email }}</p>
                      </div>
                      <div class="data">
                        <h4>Phone</h4>
