@@ -9,4 +9,6 @@ class ProfileForm(ModelForm):
         widgets = {
             'favorite_product': widgets.Select(attrs={'class': 'form-control'}),
             'profile_image': widgets.TextInput(attrs={'class': 'form-control'}),
+            'name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'email': widgets.EmailInput(attrs={'class': 'form-control'}),
         }

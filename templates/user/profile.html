@@ -1,9 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Profile</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Update">
-    </form>
+    <h2>Welcome to the Account app!</h2>
+    <link rel="stylesheet" href="../../static/css/user_profile.css">
+
+    <div class="wrapper">
+        <div class="left">
+            <div class="name_image">
+                <img src="{{ user.profile.profile_image }}" alt="user" class="profile-image">
+                <h2>{{ user.profile.user }}</h2>
+            </div>
+            <a href="{% url 'edit_profile' %}"><i class="fas fa-pen-square"></i></a>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data">
+                     <div class="data">
+                        <h4>Email</h4>
+                        <p>{{ user.profile.email }}</p>
+                     </div>
+                     <div class="data">
+                       <h4>Phone</h4>
+                        <p>0001-213-998761</p>
+                  </div>
+                </div>
+            </div>
+
+          <div class="projects">
+                <h3>Projects</h3>
+                <div class="projects_data">
+                     <div class="data">
+                        <h4>Recent</h4>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                     </div>
+                     <div class="data">
+                       <h4>Most Viewed</h4>
+                        <p>dolor sit amet.</p>
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 {% endblock %}

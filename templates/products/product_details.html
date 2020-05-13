@@ -11,18 +11,12 @@
         <div class="product-details-items">
             <h1>{{ product.name }}</h1>
             <p>{{ product.description }}</p>
-            <p>{{ product.price }}$</p>
+            <b><p>{{ product.price }}$</p></b>
 
-            <button class="detail-btn">
-                <a href="{% url 'add_to_cart' product.id %}">Add to cart</a>
-            </button>
 
             {% if user.is_authenticated %}
-                <button class="detail-btn">
-                    <a href="{% url 'delete_product' product.id %}">Delete product</a>
-                </button>
-                <button class="detail-btn">
-                    <a href="{% url 'update_product' product.id %}">Update product</a>
+                <button class="btn btn-primary">
+                    <a class="btn btn-primary" href="{% url 'add_to_cart' product.id %}">Add to cart</a>
                 </button>
             {% endif %}
         </div>
