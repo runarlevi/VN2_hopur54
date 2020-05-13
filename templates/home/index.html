@@ -44,20 +44,20 @@
         <!-- bootstrap card with row name myCarousel as row 1-->
         <div class="carousel slide" id="myCarousel">
 
-            <div class="carousel-inner">
-            {% for product in upcoming|slice:":4" %}
+            <div class="carousel-inner" style="max-height: 280px">
+            {% for product in upcoming %}
                     {% if forloop.first %}
-                        <div class="active item">
+                        <div class="active item" style="max-height: 250px">
                         </div>
                     {% else %}
-                        <div class="item">
+                        <div class="item" style="max-height: 250px">
                         </div>
                     {% endif %}
-                        <div class="product">
-                            <div class="col-xs-2">
+                        <div class="product" style="width: 250px">
+                            <div class="col-xs-4">
                                 <a href="/products/{{ product.id }}">
                                     <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
-                                    <h4>{{ product.name }}</h4>
+                                    <h5>{{ product.name }}</h5>
                                 </a>
                             </div>
                         </div>
