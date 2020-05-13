@@ -6,8 +6,12 @@
     <div class="wrapper">
         <div class="left">
             <div class="name_image">
-                <img src="{{ user.profile.profile_image }}" alt="user" class="profile-image">
-                <h2>{{ user.profile.user }}</h2>
+                {% if user.profile %}
+                    <img src="{{ user.profile.profile_image }}" alt="user" class="profile-image">
+                {% else %}
+                    <img src="https://static.thenounproject.com/png/258763-200.png" alt="user" class="profile-image">
+                {% endif %}
+                <h2>{{ user.username }}</h2>
             </div>
             <a href="{% url 'edit_profile' %}"><i class="fas fa-pen-square"></i></a>
         </div>
