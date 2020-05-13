@@ -23,6 +23,6 @@ def profile(request):
             profile.user = request.user
             profile.save()
             return redirect('profile')
-    return render(request, 'user/profile.html', {
+    return render(request, 'user/edit_profile.html', {
         'form': ProfileForm(instance=profile)
     })
