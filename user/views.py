@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from user.forms.profile_form import ProfileForm
-from user.models import Profile
+from user.models import Profile, UserHistory
 from django.contrib.auth import (authenticate, login)
 
 
@@ -42,4 +42,18 @@ def edit_profile(request):
 def profile(request):
     if not request.user.is_authenticated:
         return redirect('/')
-    return render(request, '../templates/user/profile.html')
+
+    user_history = UserHistory.objects.filter(user_id=request.user.id).order_by('-date')
+    print(user_history[:10])
+    return render(request, '../templates/user/profile.html', {
+        'user_history': user_history[:4]
+    })
+
+def history(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+
+    user_history = UserHistory.objects.filter(user_id=request.user.id).order_by('-date')
+    return render(request, '../templates/user/history.html', {
+        'history': user_history
+    })

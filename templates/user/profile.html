@@ -41,7 +41,21 @@
                 </div>
             </div>
 
-
         </div>
+        <h3>Recently viewed items</h3>
+    <div class="search-history">
+        {% for item in user_history %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ item.product.productimage_set.first.image }}" class="card-img-top" alt="" style="width: 100px; height: 100px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.product.name }}</h5>
+                </div>
+                <a href="/products/{{ item.product.id }}" class="btn btn-primary" style="margin-top: auto; width: 55%">View product</a>
+            </div>
+        {% endfor %}
     </div>
+    <a href="{% url "history" %}" class="btn btn-success ml-auto mr-1" style="width: 20%">History</a>
+    </div>
+
+
 {% endblock %}

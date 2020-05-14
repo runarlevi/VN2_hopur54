@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <link rel="stylesheet" href="../../static/css/user_profile.css">
+    <h2>Your history of viewed items</h2>
+    <div class="total-history">
+        {% for item in history %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ item.product.productimage_set.first.image }}" class="card-img-top" alt="" style="width: 100px; height: 100px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.product.name }}</h5>
+                </div>
+                <a href="/products/{{ item.product.id }}" class="btn btn-primary" style="margin-top: auto; width: 55%">View product</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
