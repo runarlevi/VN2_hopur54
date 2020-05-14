@@ -9,5 +9,6 @@ urlpatterns = [
     path('decrease_quantity/<int:id>', views.decrease_quantity, name="decrease_quantity"),
     path('increase_quantity/<int:id>', views.increase_quantity, name="increase_quantity"),
     path('delete_row/<int:id>', views.delete_row, name="delete_row"),
-    path('purchase/', views.purchase, name="purchase")
+    path('purchase/', views.purchase, name="purchase"),
+    path('confirmation/', views.confirmation, name="confirmation"),
 ]

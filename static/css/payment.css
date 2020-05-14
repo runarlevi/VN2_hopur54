@@ -29,3 +29,23 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+.confirmation {
+  text-align: center;
+}
+
+.confirmation h1 {
+  font-weight: 400;
+}
+
+.confirmation h4 {
+  font-weight: 400;
+}
+
+.confirmation h5 {
+  font-weight: 400;
+}
+
+.confirmation > * {
+    color: #333;
+}

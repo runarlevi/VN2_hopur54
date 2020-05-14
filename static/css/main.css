@@ -384,3 +384,14 @@ input[type=submit]:hover {
         visibility: visible;
     }
 }
+
+.footer_info .fas {
+    font-size: 20px;
+    transition: 0.3s;
+
+}
+
+.footer-last {
+    display: block;
+    text-align: center;
+}
