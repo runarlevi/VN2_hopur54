@@ -3,5 +3,10 @@
         <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
         <h4>{{ product.name }}</h4>
         <h4>{{ product.price }}$</h4>
+        {% if product.stock == 0 %}
+            <b style="color: red">Out of stock!</b>
+        {% elif product.stock == 1 %}
+            <b style="color: orange">One left!</b>
+        {% endif %}
     </a>
 </div>
