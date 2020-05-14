@@ -2,7 +2,6 @@
 {% block content %}
     <h1>Coming soon!</h1>
 
-    <!--auto compiled css & Js-->
     <script type="text/javascript"
             src="//code.jquery.com/jquery-1.9.1.js">
   </script>
@@ -22,22 +21,7 @@
           type="text/css"
           href=
 "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- JavaScript for adding
-     slider for multiple images
-     shown at once-->
-    <script type="text/javascript">
-        $(window).load(function() {
-            $(".carousel .item").each(function() {
-                let i = $(this).next();
-                i.length || (i = $(this).siblings(":first"));
-                  i.children(":first-child").clone().appendTo($(this));
 
-                for (let n = 0; n < 4; n++)(i = i.next()).length ||
-                  (i = $(this).siblings(":first"));
-                  i.children(":first-child").clone().appendTo($(this))
-            })
-        });
-    </script>
 
     <!-- container class for bootstrap card-->
     <div class="container">
