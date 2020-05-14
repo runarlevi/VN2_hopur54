@@ -372,6 +372,7 @@ input[type=submit]:hover {
     /* left or forward direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
+        transform: scale(1.08);
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
@@ -382,6 +383,10 @@ input[type=submit]:hover {
         visibility: visible;
         display: block;
         visibility: visible;
+    }
+    .carousel-item:hover {
+        transform: scale(1.08);
+}
     }
 }
 
