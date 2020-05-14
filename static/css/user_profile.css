@@ -14,7 +14,7 @@ body{
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 }
 
 .wrapper .left{
@@ -60,6 +60,7 @@ body{
   padding: 30px 25px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .wrapper .right .info,
@@ -119,4 +120,30 @@ body{
   color :#fff;
   display: block;
   font-size: 18px;
+}
+
+.search-history {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+    margin-bottom: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    text-align: center;
+    align-items: center;
+    justify-content: stretch;
+    padding-top: 10px;
+    margin: 10px;
+}
+
+.total-history {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+    margin: 15px 15px;
 }

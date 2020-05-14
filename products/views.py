@@ -7,7 +7,7 @@ from products.forms.product_form import ProductCreateForm, ProductUpdateForm
 from products.models import Product, ProductImage
 
 from cart.models import ShoppingCart
-from user.models import Profile
+from user.models import Profile, UserHistory
 
 
 def index(request):
@@ -26,6 +26,8 @@ def index(request):
 # /products/{:id}
 #@login_required
 def get_product_by_id(request, id):
+    history = UserHistory(product_id=id, user_id=request.user.id)
+    history.save()
     return render(request, 'products/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
     })
