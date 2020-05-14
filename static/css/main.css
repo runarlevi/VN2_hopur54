@@ -180,13 +180,13 @@ input:hover,
 
 /* style the submit button */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: #167ac6;
   color: white;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #055da0;
 }
 
 /* Two-column layout */

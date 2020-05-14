@@ -48,10 +48,12 @@
             </div>
     </form>
 -->
+    <h1>Log in!</h1>
     <form method="POST" class="form form-horizontal">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Login">
     </form>
+    <p>Don't have an account? <a href="/user/register">Sign up</a>.</p>
 
 {% endblock %}
