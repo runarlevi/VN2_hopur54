@@ -20,7 +20,7 @@ def index(request):
             'firstImage': x.productimage_set.first().image,
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
+    context = {'products': Product.objects.filter(released=True).order_by('name')}
     return render(request, 'products/index.html', context)
 
 # /products/{:id}
@@ -66,6 +66,7 @@ def update_product(request, id):
         'id': id,
     })
 
+@login_required
 def add_to_cart(request, id):
     # ShoppingCart.objects.all().delete()
     if ShoppingCart.objects.filter(product_id=id, user_id=request.user.id).exists():

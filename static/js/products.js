@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#search-btn').on('click', function(e) {
+    $('#search-box').keypress(function(e) {
        e.preventDefault();
        var searchText = $('#search-box').val();
        $.ajax({
@@ -30,6 +30,3 @@ $(function(){
      $("#myAlert").alert('close');
   });
 });
-
-
-var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
