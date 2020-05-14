@@ -390,3 +390,8 @@ input[type=submit]:hover {
     transition: 0.3s;
 
 }
+
+.footer-last {
+    display: block;
+    text-align: center;
+}

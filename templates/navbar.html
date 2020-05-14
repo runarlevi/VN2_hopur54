@@ -13,8 +13,9 @@
 
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
-                    <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
                     <div class="topnav-right">
+                    <img style="height:35px;width:35px;margin-top: 12px;margin-right: 0px " src="{{ user.profile.profile_image }}" alt="" class="profile-image">
+                    <li style="margin-left: 3px">{{ user.username }}</li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     <li><a href="{% url 'shopping-cart-index' %}"><i class="fas fa-shopping-cart"></i></a></li>
                     </div>
