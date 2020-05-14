@@ -58,6 +58,29 @@ def purchase(request):
     return redirect('home-index')
 
 
+def checkout_view(request):
+    if request.method == 'POST':
+        total = 0
+        my_products = Product.objects
+        my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id).order_by('product__name')
+        for item in my_shopping_cart:
+            total += item.quantity * my_products.filter(id=item.product_id)[0].price  # Þarf kannski að nota primary key?
+        form = myCheckoutForm(data=request.POST)
+        if form.is_valid():
+            context = {
+                'cart': my_shopping_cart,
+                'total': "{:.2f}".format(total),
+                'data': form.cleaned_data
+            }
+            return render(request, 'cart/payment.html', context)
+        messages.warning(request, "Failed checkout")
+        return redirect('checkout')
+    else:
+        form = myCheckoutForm()
+    return render(request, 'cart/checkout.html', {
+        'form': form
+    })
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         form = myCheckoutForm()

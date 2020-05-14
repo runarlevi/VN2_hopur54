@@ -28,3 +28,28 @@ class myCheckoutForm(forms.Form):
         'class': 'form-control',
         'id': 'zip'
     }))
+
+    cardholder = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'name',
+        'placeholder': 'Enter your name',
+    }))
+
+    cardnumber = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': '0000 0000 0000 0000',
+    }))
+
+    month = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+    }))
+
+    year = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+    }))
+
+    cvc = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'cvv',
+        'placeholder': '123'
+    }))

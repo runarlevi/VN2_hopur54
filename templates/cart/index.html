@@ -42,11 +42,13 @@
                     <td><b>${{ total }}</b></td>
                 </tr>
                 <tr>
-                    <td colspan="5">
-                        <a href="{% url 'checkout' %}" class="btn btn-warning float-right ml-2">Proceed to checkout</a>
-                        <a href="{% url 'products-index' %}" class="btn btn-primary float-right ml-2">Continue shopping</a>
+                    <td colspan="4">
+                        <a href="{% url 'checkout' %}" class="btn btn-warning">Proceed to checkout</a>
+                        <a href="{% url 'products-index' %}" class="btn btn-primary">Continue shopping</a>
                     </td>
                 </tr>
             {% endif %}
         </table>
+    </div>
+    </div>
 {% endblock %}
