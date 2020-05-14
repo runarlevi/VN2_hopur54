@@ -83,3 +83,21 @@ def add_to_cart(request, id):
         messages.info(request, 'This item was added to your cart.')
 
     return redirect('product_details', id=id)
+
+def filter_consoles(request):
+    my_context = {
+        'consoles': Product.objects.filter(category=1),
+    }
+    return render(request, 'home/index.html', my_context)
+
+def filter_games(request):
+    my_context = {
+        'games': Product.objects.filter(category=2),
+    }
+    return render(request, 'home/index.html', my_context)
+
+def filter_accessories(request):
+    my_context = {
+        'accessories': Product.objects.filter(category=3),
+    }
+    return render(request, 'home/index.html', my_context)
