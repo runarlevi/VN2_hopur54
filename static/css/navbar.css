@@ -83,9 +83,9 @@ nav {
 }
 
 .profile-image {
-    width: 48px;
-    height: 48px;
-    margin: 0;
+    width: 40px;
+    height: 40px;
+    margin: 10;
 }
 
 .nav_links {
@@ -94,3 +94,6 @@ nav {
     list-style: none;
     padding: 0;
 }
+.fas {
+  font-size: 30px;
+  transition: 0.3s;

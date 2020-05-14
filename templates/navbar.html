@@ -15,7 +15,7 @@
                     <li><a href="{% url 'profile' %}">Profile</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     <img src="{{ user.profile.profile_image }}" alt="" class="profile-image">
-                    <li><a href="{% url 'shopping-cart-index' %}">Shopping cart</a></li>
+                    <li><a href="{% url 'shopping-cart-index' %}"><i class="fas fa-shopping-cart"></i></a></li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'register' %}">Register</a></li>
