@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.db.models import Sum
+from django.http import request
 from django.shortcuts import render, redirect
 
 #from cart.forms.checkout_form import CheckoutForms
@@ -49,6 +50,13 @@ def delete_row(request, id):
     messages.info(request, 'Item was deleted from your cart.')
     return redirect('shopping-cart-index')
 
+def purchase(request):
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
+    for item in my_shopping_cart:
+        item.delete()
+    messages.info(request, 'Thank you for your order!')
+    return redirect('home-index')
+
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):
@@ -59,10 +67,35 @@ class CheckoutView(View):
         return render(self.request, 'cart/checkout.html', context)
 
     def post(self, *args, **kwargs):
+        total = 0
+        my_products = Product.objects
+        my_shopping_cart = ShoppingCart.objects.filter(user_id=self.request.user.id).order_by('product__name')
+        for item in my_shopping_cart:
+            total += item.quantity * my_products.filter(id=item.product_id)[
+                0].price  # Þarf kannski að nota primary key?
+        context = {
+            'cart': my_shopping_cart,
+            'total': "{:.2f}".format(total),
+        }
         form = myCheckoutForm(self.request.POST or None)
         if form.is_valid():
             print('The form is valid')
-            return redirect('checkout')
+            context['data'] = form.cleaned_data
+            return render(self.request, 'cart/payment.html', context)
+        messages.warning(self.request, "Failed checkout")
+        return redirect('checkout')
+
+def payment(request):
+    total = 0
+    my_products = Product.objects
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id).order_by('product__name')
+    for item in my_shopping_cart:
+        total += item.quantity * my_products.filter(id=item.product_id)[0].price  # Þarf kannski að nota primary key?
+    context = {
+        'cart': my_shopping_cart,
+        'total': "{:.2f}".format(total),
+    }
+    return render(request, 'cart/payment.html', context)
 
 
 

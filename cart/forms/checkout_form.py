@@ -3,16 +3,28 @@ from django import forms
 
 class myCheckoutForm(forms.Form):
     full_name = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'John Johnson'
+        'class': 'form-control',
+        'placeholder': 'John Johnson',
     }))
     email = forms.EmailField(widget=forms.TextInput(attrs={
-        'placeholder': 'John@Johnson.com'
+        'class': 'form-control',
+        'placeholder': 'you@example.com',
     }))
     street_address = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
         'placeholder': '1234 Main St'
     }))
-    #country = CountryField(blank_label='(Select country)')
-    city = forms.CharField(widget=forms.TextInput(attrs={
+
+    country = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'USA'
+    }))
+
+    state = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
         'placeholder': 'New York'
     }))
-    zip = forms.CharField()
+    zip = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'id': 'zip'
+    }))
