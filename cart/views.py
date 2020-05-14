@@ -120,6 +120,8 @@ def payment(request):
     }
     return render(request, 'cart/payment.html', context)
 
+def confirmation(request):
+    return render(request, 'cart/confirmation.html')
 
 
 '''
