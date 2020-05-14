@@ -2,66 +2,35 @@
 {% block content %}
     <h1>Coming soon!</h1>
 
-    <script type="text/javascript"
-            src="//code.jquery.com/jquery-1.9.1.js">
-  </script>
-    <link rel="stylesheet"
-          type="text/css"
-          href="/css/result-light.css">
-
-    <script type="text/javascript"
-            src=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
-  </script>
-    <link rel="stylesheet"
-          type="text/css"
-          href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <link rel="stylesheet"
-          type="text/css"
-          href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-
-    <!-- container class for bootstrap card-->
-    <div class="container">
-        <!-- bootstrap card with row name myCarousel as row 1-->
-        <div class="carousel slide" id="myCarousel">
-
-            <div class="carousel-inner" style="max-height: 250px">
-            {% for product in upcoming %}
+<div class="top-content" style="margin-bottom: 70px">
+    <div class="container-fluid">
+        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                {% for item in upcoming %}
                     {% if forloop.first %}
-                        <div class="active item" style="max-height: 250px">
-                        </div>
+                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active" style="text-align: center">
+                        <img src="{{ item.productimage_set.first.image }}" class="img-fluid mx-auto d-block" alt="img1" style="width: 150px; height: 150px;">
+                        <h4>{{ item.name }}</h4>
+                    </div>
                     {% else %}
-                        <div class="item" style="max-height: 250px">
+                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3" style="text-align: center">
+                            <img src="{{ item.productimage_set.first.image }}" class="img-fluid mx-auto d-block" alt="img1" style="width: 150px; height: 150px;">
+                            <h4>{{ item.name }}</h4>
                         </div>
                     {% endif %}
-                        <div class="product" style="width: 250px">
-                            <div class="col-xs-4">
-                                <a href="/products/{{ product.id }}">
-                                    <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
-                                    <h5>{{ product.name }}</h5>
-                                </a>
-                            </div>
-                        </div>
-            {% endfor %}
+                {% endfor %}
             </div>
-            <a class="left carousel-control"
-                      href="#myCarousel"
-                      data-slide="prev">
-                <i class="glyphicon glyphicon-chevron-left">
-                </i>
+            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control"
-                href="#myCarousel"
-                data-slide="next">
-                <i class="glyphicon glyphicon-chevron-right">
-                </i>
+            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
             </a>
-
         </div>
     </div>
+</div>
 
 
 {% include 'home/coming_up_ads.html' %}

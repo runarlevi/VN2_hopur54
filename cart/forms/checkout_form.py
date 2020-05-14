@@ -35,13 +35,14 @@ class myCheckoutForm(forms.Form):
         'placeholder': 'Enter your name',
     }))
 
-    cardnumber = forms.CharField(widget=forms.TextInput(attrs={
+    cardnumber = forms.CharField(max_length=16, min_length=16, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': '0000 0000 0000 0000',
     }))
 
     month = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
+        'placeholder': '',
     }))
 
     year = forms.CharField(widget=forms.TextInput(attrs={
