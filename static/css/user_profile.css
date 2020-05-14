@@ -19,7 +19,7 @@ body{
 
 .wrapper .left{
   justify-content: space-between;
-  background: linear-gradient(to right, #ac0187, #df01a8);
+  background: linear-gradient(to right, hotpink, #f894c6);
   padding: 30px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
