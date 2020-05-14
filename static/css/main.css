@@ -215,7 +215,7 @@ input[type=submit]:hover {
 }
 
 /* text inside the vertical line */
-.inner {
+.inner:not(#special) {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -259,7 +259,7 @@ input[type=submit]:hover {
 
 @media (min-width: 768px) and (max-width: 991px) {
     /* Show 4th slide on md if col-md-4*/
-    .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
         right: -33.3333%;  /*change this with javascript in the future*/
@@ -270,7 +270,7 @@ input[type=submit]:hover {
 }
 @media (min-width: 576px) and (max-width: 768px) {
     /* Show 3rd slide on sm if col-sm-6*/
-    .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
         right: -50%;  /*change this with javascript in the future*/
@@ -284,14 +284,14 @@ input[type=submit]:hover {
         margin-right: 0;
     }
     /* show 2 items */
-    .carousel-inner .active + .carousel-item {
+    .carousel-inner:not(#special) .active + .carousel-item {
         display: block;
     }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
+    .carousel-inner:not(#special) .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner:not(#special) .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
         transition: none;
     }
-    .carousel-inner .carousel-item-next {
+    .carousel-inner:not(#special) .carousel-item-next {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
@@ -304,7 +304,7 @@ input[type=submit]:hover {
         visibility: visible;
     }
     /* farthest right hidden item must be also positioned for animations */
-    .carousel-inner .carousel-item-prev.carousel-item-right {
+    .carousel-inner:not(#special) .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
         left: 0;
@@ -326,13 +326,13 @@ input[type=submit]:hover {
 /* MD */
 @media (min-width: 768px) {
     /* show 3rd of 3 item slide */
-    .carousel-inner .active + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .active + .carousel-item + .carousel-item {
         display: block;
     }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
         transition: none;
     }
-    .carousel-inner .carousel-item-next {
+    .carousel-inner:not(#special) .carousel-item-next {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
@@ -354,14 +354,14 @@ input[type=submit]:hover {
 /* LG */
 @media (min-width: 991px) {
     /* show 4th item */
-    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .active + .carousel-item + .carousel-item + .carousel-item {
         display: block;
     }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
         transition: none;
     }
     /* Show 5th slide on lg if col-lg-3 */
-    .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    .carousel-inner:not(#special) .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
         right: -25%;  /*change this with javascript in the future*/
