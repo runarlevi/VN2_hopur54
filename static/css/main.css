@@ -395,6 +395,11 @@ input[type=submit]:hover {
 
 }
 
+.help:hover {
+    color: #555454;
+
+}
+
 .footer-last {
     display: block;
     text-align: center;
