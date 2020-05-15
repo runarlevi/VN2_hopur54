@@ -8,7 +8,7 @@ header {
     top: 0;
     z-index: 100;
     border-top: 0;
-    background: #fa755a;
+    background: linear-gradient(360deg, #fa755a, #f8b794d4);
 }
 
 header::after {
@@ -21,7 +21,7 @@ header::after {
     top: 0;
     z-index: 100;
     border-top: 0;
-    background: #fa755a;
+    background: linear-gradient(360deg, #fa755a, #f8b794d4);
 }
 
 nav {
@@ -31,7 +31,7 @@ nav {
     top: 0;
     z-index: 100;
     border-top: 0;
-    background: #fa755a;
+    background: linear-gradient(360deg, #fa755a, #f8b794d4);
 }
 
 .navtag ul {
