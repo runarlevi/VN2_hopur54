@@ -149,14 +149,12 @@ display: flex;
 
 * {box-sizing: border-box}
 
-/* style the container */
 .container {
   position: relative;
   border-radius: 5px;
   padding: 20px 0 30px 0;
 }
 
-/* style inputs and link buttons */
 input,
 .btn {
   width: 100%;
@@ -168,8 +166,7 @@ input,
   display: inline-block;
   font-size: 17px;
   line-height: 20px;
-  text-decoration: none; /* remove underline from anchors */
-
+  text-decoration: none;
 }
 
 input:hover,
@@ -178,7 +175,6 @@ input:hover,
 }
 
 
-/* style the submit button */
 input[type=submit] {
   background-color: #167ac6;
   color: white;
@@ -189,7 +185,6 @@ input[type=submit]:hover {
   background-color: #055da0;
 }
 
-/* Two-column layout */
 .col {
   float: left;
   width: 50%;
@@ -198,14 +193,12 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* vertical line */
 .vl {
   position: absolute;
   left: 50%;
@@ -214,7 +207,6 @@ input[type=submit]:hover {
   height: 175px;
 }
 
-/* text inside the vertical line */
 .inner:not(#special) {
   position: absolute;
   top: 50%;
@@ -225,29 +217,26 @@ input[type=submit]:hover {
   padding: 8px 10px;
 }
 
-/* hide some text on medium and large screens */
 .hide-md-lg {
   display: none;
 }
 
-/* bottom container */
 .bottom-container {
   text-align: center;
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
 }
 
-/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 650px) {
   .col {
     width: 100%;
     margin-top: 0;
   }
-  /* hide the vertical line */
+
   .vl {
     display: none;
   }
-  /* show the hidden text on small screens */
+
   .hide-md-lg {
     display: block;
     text-align: center;
@@ -258,22 +247,20 @@ input[type=submit]:hover {
 
 
 @media (min-width: 768px) and (max-width: 991px) {
-    /* Show 4th slide on md if col-md-4*/
     .carousel-inner:not(#special) .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
-        right: -33.3333%;  /*change this with javascript in the future*/
+        right: -33.3333%;
         z-index: -1;
         display: block;
         visibility: visible;
     }
 }
 @media (min-width: 576px) and (max-width: 768px) {
-    /* Show 3rd slide on sm if col-sm-6*/
     .carousel-inner:not(#special) .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
-        right: -50%;  /*change this with javascript in the future*/
+        right: -50%;
         z-index: -1;
         display: block;
         visibility: visible;
@@ -283,7 +270,6 @@ input[type=submit]:hover {
     .carousel-item {
         margin-right: 0;
     }
-    /* show 2 items */
     .carousel-inner:not(#special) .active + .carousel-item {
         display: block;
     }
@@ -295,7 +281,6 @@ input[type=submit]:hover {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
-    /* left or forward direction */
     .active.carousel-item-left + .carousel-item-next.carousel-item-left,
     .carousel-item-next.carousel-item-left + .carousel-item,
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
@@ -303,7 +288,6 @@ input[type=submit]:hover {
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    /* farthest right hidden item must be also positioned for animations */
     .carousel-inner:not(#special) .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
@@ -312,7 +296,6 @@ input[type=submit]:hover {
         display: block;
         visibility: visible;
     }
-    /* right or prev direction */
     .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
     .carousel-item-prev.carousel-item-right + .carousel-item,
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
@@ -323,9 +306,7 @@ input[type=submit]:hover {
         visibility: visible;
     }
 }
-/* MD */
 @media (min-width: 768px) {
-    /* show 3rd of 3 item slide */
     .carousel-inner:not(#special) .active + .carousel-item + .carousel-item {
         display: block;
     }
@@ -336,13 +317,11 @@ input[type=submit]:hover {
         position: relative;
         transform: translate3d(0, 0, 0);
     }
-    /* left or forward direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    /* right or prev direction */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
@@ -351,32 +330,27 @@ input[type=submit]:hover {
         visibility: visible;
     }
 }
-/* LG */
 @media (min-width: 991px) {
-    /* show 4th item */
     .carousel-inner:not(#special) .active + .carousel-item + .carousel-item + .carousel-item {
         display: block;
     }
     .carousel-inner:not(#special) .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
         transition: none;
     }
-    /* Show 5th slide on lg if col-lg-3 */
     .carousel-inner:not(#special) .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: absolute;
         top: 0;
-        right: -25%;  /*change this with javascript in the future*/
+        right: -25%;
         z-index: -1;
         display: block;
         visibility: visible;
     }
-    /* left or forward direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: scale(1.08);
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    /* right or prev direction //t - previous slide direction last item animation fix */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
