@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div id="myBtnContainer">
+        <a href="{% url 'products-index' %}"><button class="btn active" onclick="filterSelection()" style="width: 18%"> Show all</button></a>
+        <a href="{% url 'consoles-index' %}"><button class="btn" onclick="filterSelection()" style="width: 18%"> Consoles</button></a>
+        <a href="{% url 'games-index' %}"><button class="btn" onclick="filterSelection()" style="width: 18%"> Games</button></a>
+        <a href="{% url 'accessories-index' %}"><button class="btn" onclick="filterSelection()" style="width: 18%"> Accessories</button></a>
+    </div>
+
+    <div class="products">
+        {% for product in accessories %}
+            {% include 'products/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
+{% endblock %}

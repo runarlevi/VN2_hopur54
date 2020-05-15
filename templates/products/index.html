@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection()" style="width: 18%"> Show all</button>
-    <button class="btn" onclick="filterSelection()" style="width: 18%"> Consoles</button>
-    <button class="btn" onclick="filterSelection()" style="width: 18%"> Games</button>
-    <button class="btn" onclick="filterSelection()" style="width: 18%"> Accessories</button>
-</div>
+    <div id="myBtnContainer" style="text-align: center">
+        <a href="{% url 'products-index' %}">
+            <button class="btn btn-outline-primary" onclick="filterSelection()" style="width: 15%"> Show all</button>
+        </a>
+        <a href="{% url 'consoles-index' %}">
+            <button class="btn btn-outline-success" onclick="filterSelection()" style="width: 15%">
+                Consoles
+            </button>
+        </a>
+        <a href="{% url 'games-index' %}">
+            <button class="btn btn-outline-warning" onclick="filterSelection()" style="width: 15%"> Games</button>
+        </a>
+        <a href="{% url 'accessories-index' %}">
+            <button class="btn btn-outline-danger" onclick="filterSelection()" style="width: 15%"> Accessories</button>
+        </a>
+    </div>
 
     <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
         <i class="fas fa-search" aria-hidden="true"></i>
         <input class="form-control form-control-sm ml-3 w-75" id="search-box" type="search" placeholder="Search" aria-label="Search">
     </form>
-
 
     <div class="products">
         {% for product in products %}

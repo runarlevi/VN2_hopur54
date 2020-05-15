@@ -27,8 +27,9 @@ def index(request):
 # /products/{:id}
 #@login_required
 def get_product_by_id(request, id):
-    history = UserHistory(product_id=id, user_id=request.user.id)
-    history.save()
+    if request.user.is_authenticated:
+        history = UserHistory(product_id=id, user_id=request.user.id)
+        history.save()
     return render(request, 'products/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
     })
@@ -89,16 +90,16 @@ def filter_consoles(request):
     my_context = {
         'consoles': Product.objects.filter(category=1),
     }
-    return render(request, 'home/index.html', my_context)
+    return render(request, 'products/consoles.html', my_context)
 
 def filter_games(request):
     my_context = {
         'games': Product.objects.filter(category=2),
     }
-    return render(request, 'home/index.html', my_context)
+    return render(request, 'products/games.html', my_context)
 
 def filter_accessories(request):
     my_context = {
         'accessories': Product.objects.filter(category=3),
     }
-    return render(request, 'home/index.html', my_context)
+    return render(request, 'products/accessories.html', my_context)
