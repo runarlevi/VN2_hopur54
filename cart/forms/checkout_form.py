@@ -41,12 +41,12 @@ class myCheckoutForm(forms.Form):
         'placeholder': '0000 0000 0000 0000',
     }))
 
-    month = forms.IntegerField(max_value=12, widget=forms.TextInput(attrs={
+    month = forms.CharField(max_length=2, min_length=2, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': '01',
     }))
 
-    year = forms.IntegerField(min_value=20 ,widget=forms.TextInput(attrs={
+    year = forms.CharField(max_length=2, min_length=2, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'placeholder': '20'
     }))
