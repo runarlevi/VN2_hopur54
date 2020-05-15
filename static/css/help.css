@@ -66,16 +66,24 @@ h5 {
   position: relative;
 }
 .contact_us .btn {
+  position:absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
+  background-color: #f5f1f1;
+  color: #353c4e;
   font-size: 16px;
   padding: 12px 24px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  margin-left:30%;
+  width: 40%;
+  letter-spacing: 1.25;
+  text-transform: uppercase;
+  font-weight: 500;
+
+
 }
 button {
   width: 100%;
