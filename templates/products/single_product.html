@@ -8,7 +8,7 @@
             <b>{{ product.price }}$</b>
         {% endif %}
         {% if product.stock == 0 %}
-            <b style="color: red">Out of stock!</b>
+            <b style="color: red">Not in stock!</b>
         {% elif product.stock == 1 %}
             <b style="color: orange">One left!</b>
         {% endif %}
