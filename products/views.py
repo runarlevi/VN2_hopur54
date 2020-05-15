@@ -19,7 +19,7 @@ def index(request):
             'description': x.description,
             'firstImage': x.productimage_set.first().image,
             'price': x.price,
-        } for x in Product.objects.filter(name__icontains=search_filter, released=True)]
+        } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
     context = {'products': Product.objects.filter(released=True).order_by('name')}
     return render(request, 'products/index.html', context)
