@@ -50,14 +50,6 @@ def delete_row(request, id):
     messages.info(request, 'Item was deleted from your cart.')
     return redirect('shopping-cart-index')
 
-def purchase(request):
-    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
-    for item in my_shopping_cart:
-        item.delete()
-    messages.info(request, 'Thank you for your order!')
-    return redirect('home-index')
-
-
 def checkout_view(request):
     if request.method == 'POST':
         total = 0
@@ -113,7 +105,7 @@ def payment(request):
     my_products = Product.objects
     my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id).order_by('product__name')
     for item in my_shopping_cart:
-        total += item.quantity * my_products.filter(id=item.product_id)[0].price  # Þarf kannski að nota primary key?
+        total += item.quantity * my_products.filter(id=item.product_id)[0].price
     context = {
         'cart': my_shopping_cart,
         'total': "{:.2f}".format(total),
@@ -121,20 +113,10 @@ def payment(request):
     return render(request, 'cart/payment.html', context)
 
 def confirmation(request):
+    my_shopping_cart = ShoppingCart.objects.filter(user_id=request.user.id)
+    for item in my_shopping_cart:
+        all_prods = Product.objects.get(pk=item.product_id)
+        all_prods.stock -= 1
+        all_prods.save(update_fields=['stock'])
+        item.delete()
     return render(request, 'cart/confirmation.html')
-
-
-'''
-def do_checkout(request):
-    if request.method == 'POST':
-        form = CheckoutForms(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home-index')
-    else:
-        form = CheckoutForms()
-    return render(request, 'cart/checkout.html', {
-        'form': form,
-        'cart': ShoppingCart.objects.all(),
-    })
-'''
