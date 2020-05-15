@@ -26,6 +26,7 @@ def register(request):
 
     return render(request, 'user/register.html', context)
 
+
 def edit_profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -39,6 +40,7 @@ def edit_profile(request):
         'form': ProfileForm(instance=profile)
     })
 
+
 def profile(request):
     if not request.user.is_authenticated:
         return redirect('/')
@@ -48,6 +50,7 @@ def profile(request):
     return render(request, '../templates/user/profile.html', {
         'user_history': user_history[:4]
     })
+
 
 def history(request):
     if not request.user.is_authenticated:
