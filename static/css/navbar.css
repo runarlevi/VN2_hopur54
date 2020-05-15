@@ -58,7 +58,6 @@ nav {
 }
 
 .navtag a img{
-    width: 52px;
 }
 
 .navtag a:hover {
@@ -102,8 +101,4 @@ nav {
 
 .topnav-right {
     float:right;
-}
-
-.logo {
-    size: 200%
 }
