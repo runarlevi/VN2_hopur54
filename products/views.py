@@ -5,13 +5,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from products.forms.product_form import ProductCreateForm, ProductUpdateForm
 from products.models import Product, ProductImage
-
+import json
 from cart.models import ShoppingCart
 from user.models import Profile, UserHistory
+from django.template.response import TemplateResponse
+from django.http import HttpResponse
 
 
 def index(request):
     if 'search_filter' in request.GET:
+        print(request.GET)
         search_filter = request.GET['search_filter']
         products = [{
             'id': x.id,
@@ -21,6 +24,27 @@ def index(request):
             'price': x.price,
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
+
+    if 'sort_filter' in request.GET:
+        sort_filter = request.GET['sort_filter']
+        all_prods = Product.objects.filter(released=True)
+        if sort_filter == 'AZ':
+            all_prods = all_prods.order_by('name')
+        elif sort_filter == 'PH':
+            all_prods = all_prods.order_by('-price')
+        else:
+            all_prods = all_prods.order_by('price')
+
+        products = [{
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'firstImage': x.productimage_set.first().image,
+            'price': x.price,
+        } for x in all_prods]
+        return JsonResponse({'bla': products})
+
+
     context = {'products': Product.objects.all().order_by('name')}
     return render(request, 'products/index.html', context)
 

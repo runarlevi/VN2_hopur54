@@ -18,10 +18,21 @@
         </a>
     </div>
 
-    <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" id="search-box" type="search" placeholder="Search" aria-label="Search">
-    </form>
+    <div id="filterss" style="display: flex; align-items: baseline; justify-content: center;">
+    <label>Filter by:</label>
+    <select class="custom-select" id="myfilter" style="width: 50%">
+        <option value="AZ">A-Z</option>
+        <option value="PH">Highest to lowes</option>
+        <option value="PL">Lowest to highest</option>
+    </select>
+    <div class="input-group mb-3">
+        <input id="search-box" type="search" class="form-control" placeholder="Search products" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button id="search-btn" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    </div>
+
 
     <div class="products">
         {% for product in products %}
