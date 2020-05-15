@@ -62,7 +62,13 @@ h5 {
   }
 }
 
+.contact_us {
+  position: relative;
+}
 .contact_us .btn {
+  position:absolute;
+  top: 50%;
+  left: 50%;
   -ms-transform: translate(-50%, -50%);
   background-color: #555;
   color: white;
