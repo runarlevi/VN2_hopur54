@@ -17,7 +17,7 @@
                     <img style="height:35px;width:35px;margin-top: 12px;margin-right: 0px " src="{{ user.profile.profile_image }}" alt="" class="profile-image">
                     <li style="margin-left: 3px">{{ user.username }}</li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
-                    <li><a href="{% url 'shopping-cart-index' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a href="{% url 'shopping-cart-index' %}"><i class="fas fa-shopping-cart" id="cart-icon"></i></a></li>
                     </div>
                 {% else %}
                     <div class="topnav-right">

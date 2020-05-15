@@ -24,6 +24,7 @@ class myCheckoutForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'New York'
     }))
+
     zip = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
         'id': 'zip'
@@ -40,16 +41,17 @@ class myCheckoutForm(forms.Form):
         'placeholder': '0000 0000 0000 0000',
     }))
 
-    month = forms.CharField(widget=forms.TextInput(attrs={
+    month = forms.IntegerField(max_value=12, widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'placeholder': '',
+        'placeholder': '01',
     }))
 
-    year = forms.CharField(widget=forms.TextInput(attrs={
+    year = forms.IntegerField(min_value=20 ,widget=forms.TextInput(attrs={
         'class': 'form-control',
+        'placeholder': '20'
     }))
 
-    cvc = forms.CharField(widget=forms.TextInput(attrs={
+    cvc = forms.CharField(max_length=4, min_length=3, widget=forms.TextInput(attrs={
         'class': 'form-control',
         'id': 'cvv',
         'placeholder': '123'

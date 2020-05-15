@@ -94,8 +94,9 @@ nav {
     list-style: none;
     padding: 0;
 }
-.fas {
-  font-size: 30px;
+
+#cart-icon {
+  font-size: 26px;
   transition: 0.3s;
 }
 
