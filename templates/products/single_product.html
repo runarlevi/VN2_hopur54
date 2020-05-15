@@ -2,7 +2,11 @@
     <a href="/products/{{ product.id }}">
         <img class="product-img" src="{{ product.productimage_set.first.image }}" alt="">
         <h4>{{ product.name }}</h4>
-        <h4>{{ product.price }}$</h4>
+        {% if product.price == 0 %}
+            <b><p>TBA</p></b>
+        {% else %}
+            <b><p>{{ product.price }}$</p></b>
+        {% endif %}
         {% if product.stock == 0 %}
             <b style="color: red">Out of stock!</b>
         {% elif product.stock == 1 %}
